@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apple-inspired design system */
+@layer base {
+  :root {
+    /* Apple-style colors */
+    --color-bg-primary: #fafafa;
+    --color-bg-secondary: #f5f5f7;
+    --color-bg-tertiary: #ffffff;
+    --color-text-primary: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-text-tertiary: #86868b;
+    --color-accent: #007aff;
+    --color-accent-hover: #0056d6;
+    --color-border: #d2d2d7;
+    --color-border-light: #f5f5f7;
+    --color-success: #30d158;
+    --color-warning: #ff9500;
+    --color-error: #ff3b30;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+  
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Apple-style cards */
+  .apple-card {
+    @apply bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all duration-300;
+    background-color: var(--color-bg-tertiary);
+    border-color: var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .apple-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Apple-style buttons */
+  .btn-primary {
+    @apply px-6 py-3 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20;
+    background-color: var(--color-accent);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-gray-500/10;
+  }
+  
+  /* Apple-style inputs */
+  .input-field {
+    @apply w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+  }
+  
+  /* Message bubbles - Apple Messages style */
+  .message-bubble {
+    @apply px-4 py-3 rounded-2xl max-w-xs md:max-w-md shadow-sm;
+  }
+  
+  .message-sent {
+    @apply bg-blue-500 text-white ml-auto;
+    background-color: var(--color-accent);
+  }
+  
+  .message-received {
+    @apply bg-gray-100 text-gray-900 mr-auto;
+  }
+  
+  /* Apple-style typography */
+  .text-display {
+    @apply text-4xl md:text-6xl font-bold tracking-tight;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  
+  .text-headline {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-title {
+    @apply text-xl font-semibold;
+    font-weight: 600;
+  }
+  
+  .text-body {
+    @apply text-base text-gray-600;
+    color: var(--color-text-secondary);
+  }
+  
+  .text-caption {
+    @apply text-sm text-gray-500;
+    color: var(--color-text-tertiary);
+  }
+  
+  /* Subtle animations */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  
+  /* Apple-style dividers */
+  .divider {
+    @apply border-gray-200;
+    border-color: var(--color-border);
+  }
+}
+
+@layer utilities {
+  .backdrop-blur-apple {
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apple-style scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Status indicators */
+.status-online {
+  @apply w-3 h-3 bg-green-500 rounded-full;
+  background-color: var(--color-success);
+}
+
+.status-typing {
+  @apply w-3 h-3 bg-orange-500 rounded-full animate-pulse;
+  background-color: var(--color-warning);
+}
