@@ -48,8 +48,12 @@ class UserService:
     
     # 移除_create_demo_user方法，不自動建立示範用戶
     
-    def get_all_users(self) -> List[Dict[str, str]]:
-        """獲取所有用戶列表"""
+    def get_all_users(self) -> Dict[str, User]:
+        """獲取所有用戶字典"""
+        return self.users_container.users
+    
+    def get_all_users_list(self) -> List[Dict[str, str]]:
+        """獲取所有用戶列表（用於API響應）"""
         return [
             {"id": user_id, "name": user.profile_data.basic_info.name}
             for user_id, user in self.users_container.users.items()

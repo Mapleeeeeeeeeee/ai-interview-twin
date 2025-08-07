@@ -47,22 +47,29 @@ class InterviewService:
     
     def generate_interview_response(self, user_id: str, message: str, session_id: Optional[str] = None) -> Dict:
         """生成面試回應"""
+        print(f"🎯 開始處理面試問題 - 用戶ID: {user_id}, 問題: '{message}'")
+        
         # 獲取用戶資料
         user = user_service.get_user(user_id)
         if not user:
             raise ValueError(f"用戶 {user_id} 不存在")
         
+        print(f"👤 用戶資料已載入: {user.profile_data.basic_info.name}")
+        
         # 處理session
         if not session_id:
             session_id = self.start_interview(user_id)
+            print(f"🆕 創建新的面試session: {session_id}")
         
         session = self.get_session(session_id)
         if not session:
             session_id = self.start_interview(user_id)
             session = self.get_session(session_id)
+            print(f"🔄 重建面試session: {session_id}")
         
         # 加入面試官問題
         self.add_message(session_id, "interviewer", message)
+        print(f"📝 面試官問題已記錄")
         
         # 準備對話歷史給LLM
         conversation_history = []
@@ -73,6 +80,8 @@ class InterviewService:
                 "content": msg.content
             })
         
+        print(f"📋 對話歷史準備完成: {len(conversation_history)} 條記錄")
+        
         # 生成回應
         response = llm_service.generate_response(
             user=user,
@@ -82,12 +91,16 @@ class InterviewService:
         
         # 加入AI回應
         self.add_message(session_id, "candidate", response)
+        print(f"💾 AI回應已保存到session")
         
-        return {
+        result = {
             "response": response,
             "session_id": session_id,
             "timestamp": datetime.now().isoformat()
         }
+        
+        print(f"✅ 面試回應處理完成")
+        return result
     
     def get_conversation_history(self, session_id: str) -> List[Dict]:
         """獲取對話歷史"""

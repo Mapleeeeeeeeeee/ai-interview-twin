@@ -9,7 +9,7 @@ router = APIRouter(prefix="/api/users", tags=["users"])
 async def get_all_users():
     """獲取所有用戶列表"""
     try:
-        users = user_service.get_all_users()
+        users = user_service.get_all_users_list()
         return UserListResponse(users=users)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"獲取用戶列表失敗: {str(e)}")

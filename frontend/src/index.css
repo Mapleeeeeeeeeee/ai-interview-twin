@@ -2,161 +2,214 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apple-inspired design system */
+/* 2025 Design System - Modern, Glass-morphism inspired */
 @layer base {
   :root {
-    /* Apple-style colors */
-    --color-bg-primary: #fafafa;
-    --color-bg-secondary: #f5f5f7;
-    --color-bg-tertiary: #ffffff;
-    --color-text-primary: #1d1d1f;
-    --color-text-secondary: #6e6e73;
-    --color-text-tertiary: #86868b;
-    --color-accent: #007aff;
-    --color-accent-hover: #0056d6;
-    --color-border: #d2d2d7;
-    --color-border-light: #f5f5f7;
-    --color-success: #30d158;
-    --color-warning: #ff9500;
-    --color-error: #ff3b30;
+    /* Color Palette - 2025 Trends */
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --ai-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
     
-    /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
-    --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.1);
+    /* Glass-morphism Colors */
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: rgba(31, 38, 135, 0.37);
+    
+    /* Modern Shadows */
+    --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.37);
+    --shadow-floating: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --shadow-intense: 0 30px 60px rgba(0, 0, 0, 0.15);
+    
+    /* Typography Scale */
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
   
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    line-height: 1.6;
-  }
-  
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-display);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
 }
 
 @layer components {
-  /* Apple-style cards */
+  /* Modern Card System with Glass-morphism */
+  .glass-card {
+    @apply backdrop-blur-md bg-white/20 border border-white/20 rounded-3xl p-6;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  
+  .modern-card {
+    @apply bg-white/95 backdrop-blur-sm border-0 rounded-3xl p-8 transition-all duration-300;
+    box-shadow: var(--shadow-floating);
+  }
+  
+  .modern-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-intense);
+  }
+  
+  /* AI-themed Elements */
+  .ai-bubble {
+    @apply relative rounded-3xl p-6;
+    background: var(--ai-gradient);
+    border-radius: 32px;
+  }
+  
+  .ai-bubble::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  
+  /* Message Bubbles with 2025 Trends */
+  .message-user {
+    @apply text-white rounded-3xl px-6 py-4 max-w-xs;
+    background: var(--primary-gradient);
+    border-radius: 28px 28px 8px 28px;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  }
+  
+  .message-assistant {
+    @apply bg-white/90 backdrop-blur-sm text-gray-800 rounded-3xl px-6 py-4 max-w-xs;
+    border-radius: 28px 28px 28px 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Modern Input Field */
+  .modern-input {
+    @apply bg-white/80 backdrop-blur-sm border-0 rounded-2xl px-6 py-4 text-gray-800 placeholder-gray-500;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:bg-white/90;
+    @apply transition-all duration-300;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Buttons with 2025 Style */
+  .btn-primary-modern {
+    @apply text-white font-semibold rounded-2xl px-8 py-4 transition-all duration-300;
+    @apply transform hover:scale-105 active:scale-95;
+    background: var(--primary-gradient);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  }
+  
+  .btn-primary-modern:hover {
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+  }
+  
+  /* Profile Avatar with Gradient */
+  .avatar-gradient {
+    @apply w-24 h-24 rounded-3xl flex items-center justify-center mx-auto;
+    background: var(--ai-gradient);
+    box-shadow: 0 12px 35px rgba(79, 172, 254, 0.3);
+  }
+  
+  /* Social Icons */
+  .social-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300;
+    @apply bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30;
+    @apply transform hover:scale-110 hover:-translate-y-1;
+    @apply cursor-pointer;
+  }
+  
+  .social-icon:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Status Indicator with Glow */
+  .status-online {
+    @apply w-3 h-3 rounded-full;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 0 12px rgba(79, 172, 254, 0.6);
+    animation: pulse-glow 2s infinite;
+  }
+  
+  /* Skill Pills */
+  .skill-pill {
+    @apply px-4 py-2 rounded-2xl text-sm font-medium;
+    @apply bg-white/20 backdrop-blur-sm border border-white/30;
+    @apply transition-all duration-300 hover:bg-white/30;
+  }
+  
+  /* Legacy Apple Card Support (for compatibility) */
   .apple-card {
-    @apply bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all duration-300;
-    background-color: var(--color-bg-tertiary);
-    border-color: var(--color-border-light);
-    box-shadow: var(--shadow-sm);
+    @apply modern-card;
   }
   
-  .apple-card:hover {
-    box-shadow: var(--shadow-md);
-  }
-  
-  /* Apple-style buttons */
+  /* Legacy Button Support */
   .btn-primary {
-    @apply px-6 py-3 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20;
-    background-color: var(--color-accent);
+    @apply btn-primary-modern;
   }
   
-  .btn-primary:hover {
-    background-color: var(--color-accent-hover);
-  }
-  
-  .btn-secondary {
-    @apply px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-gray-500/10;
-  }
-  
-  /* Apple-style inputs */
+  /* Legacy Input Support */
   .input-field {
-    @apply w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+    @apply modern-input;
   }
   
-  /* Message bubbles - Apple Messages style */
+  /* Legacy Message Support */
   .message-bubble {
-    @apply px-4 py-3 rounded-2xl max-w-xs md:max-w-md shadow-sm;
+    @apply rounded-3xl px-6 py-4 max-w-xs transition-all duration-300;
   }
   
   .message-sent {
-    @apply bg-blue-500 text-white ml-auto;
-    background-color: var(--color-accent);
+    @apply message-user;
   }
   
   .message-received {
-    @apply bg-gray-100 text-gray-900 mr-auto;
+    @apply message-assistant;
   }
   
-  /* Apple-style typography */
+  /* Typography Scale */
   .text-display {
-    @apply text-4xl md:text-6xl font-bold tracking-tight;
-    font-weight: 700;
-    letter-spacing: -0.025em;
+    @apply text-4xl font-bold tracking-tight text-gray-900;
   }
   
   .text-headline {
-    @apply text-2xl md:text-3xl font-semibold tracking-tight;
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    @apply text-2xl font-bold text-gray-900;
   }
   
   .text-title {
-    @apply text-xl font-semibold;
-    font-weight: 600;
+    @apply text-xl font-semibold text-gray-800;
   }
   
   .text-body {
-    @apply text-base text-gray-600;
-    color: var(--color-text-secondary);
+    @apply text-base text-gray-700;
   }
   
   .text-caption {
-    @apply text-sm text-gray-500;
-    color: var(--color-text-tertiary);
+    @apply text-sm text-gray-600;
   }
   
-  /* Subtle animations */
+  /* Dividers */
+  .divider {
+    @apply border-white/20;
+  }
+  
+  /* Animations */
   .fade-in {
-    animation: fadeIn 0.6s ease-out;
+    animation: fadeIn 0.5s ease-out;
   }
   
   .slide-up {
-    animation: slideUp 0.4s ease-out;
+    animation: slideUp 0.6s ease-out;
   }
   
-  /* Apple-style dividers */
-  .divider {
-    @apply border-gray-200;
-    border-color: var(--color-border);
+  .float {
+    animation: float 3s ease-in-out infinite;
   }
 }
 
-@layer utilities {
-  .backdrop-blur-apple {
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  
-  .text-gradient-blue {
-    background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-}
-
-/* Smooth animations */
+/* Keyframe Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -167,36 +220,78 @@
   }
 }
 
-/* Apple-style scrollbar */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(79, 172, 254, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
+  }
+}
+
+/* Progressive Blur Effect */
+.progressive-blur {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  backdrop-filter: blur(0px) blur(8px) blur(16px);
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  grid-auto-rows: minmax(200px, auto);
+}
+
+.bento-item {
+  @apply modern-card;
+  grid-row: span 1;
+}
+
+.bento-item.large {
+  grid-row: span 2;
+}
+
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* Focus styles */
-.focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
-}
-
-/* Status indicators */
-.status-online {
-  @apply w-3 h-3 bg-green-500 rounded-full;
-  background-color: var(--color-success);
-}
-
-.status-typing {
-  @apply w-3 h-3 bg-orange-500 rounded-full animate-pulse;
-  background-color: var(--color-warning);
+  background: rgba(255, 255, 255, 0.5);
 }
