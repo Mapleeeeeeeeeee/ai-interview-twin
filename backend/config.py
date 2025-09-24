@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     vectors_data_file: str = "data/vectors.json"
     
     # OpenAI 配置
-    openai_model: str = "gpt-4.1"
+    openai_model: str = "gpt-4.1-mini"
     openai_temperature: float = 0.7
     openai_max_tokens: int = 2000
     
