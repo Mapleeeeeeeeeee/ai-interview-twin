@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     default_user_id: str = "1"
     
     class Config:
-        env_file = "../.env"  # 指向上一層的.env文件
+        env_file = ".env"  # 指向當前目錄的.env文件
         case_sensitive = False
         extra = "ignore"  # 忽略額外的環境變數
 
