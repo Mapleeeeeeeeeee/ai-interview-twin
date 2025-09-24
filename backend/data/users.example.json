@@ -1,0 +1,80 @@
+{
+  "users": {
+    "example": {
+      "id": "example",
+      "profile_data": {
+        "basic_info": {
+          "name": "範例使用者",
+          "email": "example@example.com",
+          "phone": "0900-000-000",
+          "location": "台灣",
+          "linkedin": "https://linkedin.com/in/example",
+          "github": "https://github.com/example"
+        },
+        "career_objective": {
+          "target_position": "軟體工程師",
+          "target_industry": "科技業",
+          "target_role_types": [
+            "全端工程師",
+            "後端工程師"
+          ],
+          "preferred_location": "台北市",
+          "career_goals": "成為優秀的軟體開發者"
+        },
+        "work_experience": [],
+        "projects": [
+          {
+            "name": "範例專案",
+            "description": "這是一個範例專案",
+            "role": "開發者",
+            "team_size": 1,
+            "duration": "6個月",
+            "technologies": ["Python", "FastAPI"],
+            "challenges": "學習新技術",
+            "solutions": "透過實作來學習",
+            "results": "成功完成專案"
+          }
+        ],
+        "skills": {
+          "programming_languages": [
+            {"name": "Python", "level": 3, "years": 1.0}
+          ],
+          "ai_ml_frameworks": [],
+          "backend_frameworks": [
+            {"name": "FastAPI", "level": 2, "years": 0.5}
+          ],
+          "databases": [],
+          "frontend_frameworks": [],
+          "version_control": [
+            {"name": "Git", "level": 2, "years": 1.0}
+          ],
+          "ai_specialties": []
+        },
+        "education": [
+          {
+            "degree": "資訊工程學士",
+            "school": "範例大學",
+            "graduation_year": 2024,
+            "status": "畢業",
+            "relevant_courses": [
+              "程式設計",
+              "資料結構"
+            ]
+          }
+        ],
+        "certifications": [],
+        "personality": {
+          "work_style": "注重學習與實作",
+          "values": "持續學習新技術",
+          "interests": ["程式設計", "新技術學習"]
+        },
+        "languages": [
+          {"language": "中文", "level": "母語"},
+          {"language": "英文", "level": "中等"}
+        ]
+      },
+      "created_at": "2025-09-24T00:00:00.000000",
+      "updated_at": "2025-09-24T00:00:00.000000"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "example": {
+    "user_id": "example",
+    "profile_text": "範例使用者的個人資料...",
+    "embedding": [],
+    "created_at": "2025-09-24T00:00:00.000000",
+    "updated_at": "2025-09-24T00:00:00.000000"
+  }
+}
