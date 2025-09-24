@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from models.profile import ChatRequest, ChatResponse
 from services.interview_service import interview_service
+from config import settings
 
 router = APIRouter(prefix="/api/interview", tags=["interview"])
 

@@ -15,6 +15,9 @@ class Settings(BaseSettings):
     openai_temperature: float = 0.7
     openai_max_tokens: int = 2000
     
+    # 預設用戶配置
+    default_user_id: str = "1"
+    
     class Config:
         env_file = "../.env"  # 指向上一層的.env文件
         case_sensitive = False
